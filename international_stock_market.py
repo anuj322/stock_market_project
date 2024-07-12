@@ -1,0 +1,56 @@
+import requests
+
+cookies = {
+    '_gid': 'GA1.2-2.1008960296.1720777337',
+    '_gat_UA1603362071': '1',
+    '_ga_2TXF8EQ5P7': 'GS1.1-2.1720777357.1.0.1720777357.0.0.0',
+    '_ga': 'GA1.1-2.1961820647.1720777337',
+    'HSID': 'Ax4tjYwxLJjYoVcVg',
+    'SSID': 'A7yMw0qVCeGfFYOHz',
+    'APISID': 'gCCyfQt4BmpVuiYm/AIVyc5lOgBwnSZGj2',
+    'SAPISID': '9hoqvP3ajGDa3XQ9/AApQGo9-eUikpjxzP',
+    '__Secure-1PAPISID': '9hoqvP3ajGDa3XQ9/AApQGo9-eUikpjxzP',
+    '__Secure-3PAPISID': '9hoqvP3ajGDa3XQ9/AApQGo9-eUikpjxzP',
+    'SEARCH_SAMESITE': 'CgQIl5sB',
+    'AEC': 'AQTF6HytvJtc3vgCHBXHLORVe6-s_zXTzC6LQhyAcp1tbfWYW8sWxW0xtPw',
+    'receive-cookie-deprecation': '1',
+    'SID': 'g.a000lAhL2s61ZgKMFEJ1pTqetmhQBlKb1Xg5_npMEwSb_hXBfhBpo0vhR4Gb-dYp0No712OCqQACgYKAT8SARASFQHGX2Mi2KP-EWeX_56faI0t7aP-OBoVAUF8yKq-RoAJPvXtuP88m76_lYIY0076',
+    '__Secure-1PSID': 'g.a000lAhL2s61ZgKMFEJ1pTqetmhQBlKb1Xg5_npMEwSb_hXBfhBpkNOEQ-q_NRGkmFQtXbErOQACgYKAaoSARASFQHGX2MivR9Td4bzbTCK72VR8OrFNRoVAUF8yKoSvFpWMMk2fV0Iymzfy0ZO0076',
+    '__Secure-3PSID': 'g.a000lAhL2s61ZgKMFEJ1pTqetmhQBlKb1Xg5_npMEwSb_hXBfhBpXSlFkv4bh3SzVf0al1zlqgACgYKAQISARASFQHGX2MiZqC0qzM5ZBsi-k2V60vc1hoVAUF8yKrFxDez8sIqhSPU_jMWYzai0076',
+    'NID': '515=DVPGARCgupm5sbtzPJdvtcyPoi5bQugkCxqsmipZGZnPeVyq3zut7fdzMOkB2dWZvp1s2-ncO3ibT3vVJLs_KRhpun3yXvqOMkCZ5MHE4GcuLVcx3W04UDsKRiqTMEXcdxgsqzYPY0xTe-qT9BubGBUT4K66sgLYkXIqdFMG872aU5tAmMf4fOmHrMuZ5RUsXRw5CVEhiDGL4_TQ_yuhrZHZFED8VbRq1z1YQLhuOz7Umu9jaod9jV-74QyJxj-IhnyGqjVqWCipO0x16o1Rqh1Skj_6xtSwOWC4ogjWUiXA4YfaISQp8KrAphgFWADQyw2rrmRm31w',
+    'OTZ': '7641222_34_34__34_',
+    '__Secure-1PSIDTS': 'sidts-CjEB4E2dkQefycfpyLhtsIPpJXb-gWr1gGj-TATTi96JjNViULHDzTEKwwtIUV6dSda0EAA',
+    '__Secure-3PSIDTS': 'sidts-CjEB4E2dkQefycfpyLhtsIPpJXb-gWr1gGj-TATTi96JjNViULHDzTEKwwtIUV6dSda0EAA',
+    'SIDCC': 'AKEyXzV8gbi9VaHXvaQrCwlg8uqn-g3F_7h40Q9rxvZEpv4FI28AwSvq56fehVBDqWKMhQgk3qk',
+    '__Secure-1PSIDCC': 'AKEyXzXQGy3wiqeZ_M444BZI16xtJ2_dnuCPlUFwEO5c9wqBYYMGEheK_CE00AbkTvzcDChrU70',
+    '__Secure-3PSIDCC': 'AKEyXzUcmDFKgpRTAnLis-zxKAT4KT9-bHtYYR6tt7QvLsknn6bcS0l6I0GZWYKP3nqKOqT2P2w',
+}
+
+headers = {
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    'accept-language': 'en-US,en;q=0.9',
+    'cache-control': 'max-age=0',
+    # 'cookie': '_gid=GA1.2-2.1008960296.1720777337; _gat_UA1603362071=1; _ga_2TXF8EQ5P7=GS1.1-2.1720777357.1.0.1720777357.0.0.0; _ga=GA1.1-2.1961820647.1720777337; HSID=Ax4tjYwxLJjYoVcVg; SSID=A7yMw0qVCeGfFYOHz; APISID=gCCyfQt4BmpVuiYm/AIVyc5lOgBwnSZGj2; SAPISID=9hoqvP3ajGDa3XQ9/AApQGo9-eUikpjxzP; __Secure-1PAPISID=9hoqvP3ajGDa3XQ9/AApQGo9-eUikpjxzP; __Secure-3PAPISID=9hoqvP3ajGDa3XQ9/AApQGo9-eUikpjxzP; SEARCH_SAMESITE=CgQIl5sB; AEC=AQTF6HytvJtc3vgCHBXHLORVe6-s_zXTzC6LQhyAcp1tbfWYW8sWxW0xtPw; receive-cookie-deprecation=1; SID=g.a000lAhL2s61ZgKMFEJ1pTqetmhQBlKb1Xg5_npMEwSb_hXBfhBpo0vhR4Gb-dYp0No712OCqQACgYKAT8SARASFQHGX2Mi2KP-EWeX_56faI0t7aP-OBoVAUF8yKq-RoAJPvXtuP88m76_lYIY0076; __Secure-1PSID=g.a000lAhL2s61ZgKMFEJ1pTqetmhQBlKb1Xg5_npMEwSb_hXBfhBpkNOEQ-q_NRGkmFQtXbErOQACgYKAaoSARASFQHGX2MivR9Td4bzbTCK72VR8OrFNRoVAUF8yKoSvFpWMMk2fV0Iymzfy0ZO0076; __Secure-3PSID=g.a000lAhL2s61ZgKMFEJ1pTqetmhQBlKb1Xg5_npMEwSb_hXBfhBpXSlFkv4bh3SzVf0al1zlqgACgYKAQISARASFQHGX2MiZqC0qzM5ZBsi-k2V60vc1hoVAUF8yKrFxDez8sIqhSPU_jMWYzai0076; NID=515=DVPGARCgupm5sbtzPJdvtcyPoi5bQugkCxqsmipZGZnPeVyq3zut7fdzMOkB2dWZvp1s2-ncO3ibT3vVJLs_KRhpun3yXvqOMkCZ5MHE4GcuLVcx3W04UDsKRiqTMEXcdxgsqzYPY0xTe-qT9BubGBUT4K66sgLYkXIqdFMG872aU5tAmMf4fOmHrMuZ5RUsXRw5CVEhiDGL4_TQ_yuhrZHZFED8VbRq1z1YQLhuOz7Umu9jaod9jV-74QyJxj-IhnyGqjVqWCipO0x16o1Rqh1Skj_6xtSwOWC4ogjWUiXA4YfaISQp8KrAphgFWADQyw2rrmRm31w; OTZ=7641222_34_34__34_; __Secure-1PSIDTS=sidts-CjEB4E2dkQefycfpyLhtsIPpJXb-gWr1gGj-TATTi96JjNViULHDzTEKwwtIUV6dSda0EAA; __Secure-3PSIDTS=sidts-CjEB4E2dkQefycfpyLhtsIPpJXb-gWr1gGj-TATTi96JjNViULHDzTEKwwtIUV6dSda0EAA; SIDCC=AKEyXzV8gbi9VaHXvaQrCwlg8uqn-g3F_7h40Q9rxvZEpv4FI28AwSvq56fehVBDqWKMhQgk3qk; __Secure-1PSIDCC=AKEyXzXQGy3wiqeZ_M444BZI16xtJ2_dnuCPlUFwEO5c9wqBYYMGEheK_CE00AbkTvzcDChrU70; __Secure-3PSIDCC=AKEyXzUcmDFKgpRTAnLis-zxKAT4KT9-bHtYYR6tt7QvLsknn6bcS0l6I0GZWYKP3nqKOqT2P2w',
+    'priority': 'u=0, i',
+    'referer': 'https://www.bing.com/',
+    'sec-ch-ua': '"Not/A)Brand";v="8", "Chromium";v="126", "Microsoft Edge";v="126"',
+    'sec-ch-ua-arch': '""',
+    'sec-ch-ua-bitness': '"64"',
+    'sec-ch-ua-full-version': '"126.0.2592.87"',
+    'sec-ch-ua-full-version-list': '"Not/A)Brand";v="8.0.0.0", "Chromium";v="126.0.6478.127", "Microsoft Edge";v="126.0.2592.87"',
+    'sec-ch-ua-mobile': '?1',
+    'sec-ch-ua-model': '"Nexus 5"',
+    'sec-ch-ua-platform': '"Android"',
+    'sec-ch-ua-platform-version': '"6.0"',
+    'sec-ch-ua-wow64': '?0',
+    'sec-fetch-dest': 'document',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-user': '?1',
+    'service-worker-navigation-preload': 'true',
+    'upgrade-insecure-requests': '1',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36 Edg/126.0.0.0',
+}
+
+response = requests.get('https://www.google.com/finance/quote/MSFT:NASDAQ', cookies=cookies, headers=headers)
+print(response.text)
